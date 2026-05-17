@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remy Fernando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F7F4EF;
+    --ink: #1A1814;
+    --muted: #6B6760;
+    --accent: #C17A3A;
+    --accent-light: #EEE0CC;
+    --border: rgba(26,24,20,0.12);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  .page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+
+  header {
+    margin-bottom: 4rem;
+  }
+
+  .eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.8rem, 8vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .tagline {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 44ch;
+    border-left: 2px solid var(--accent);
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .bio {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.75;
+    color: var(--ink);
+    max-width: 58ch;
+    margin-bottom: 2.5rem;
+  }
+
+  .links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .link-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 0.45rem 1.1rem;
+    transition: all 0.2s ease;
+    background: white;
+  }
+
+  .link-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  .link-pill svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3.5rem 0;
+  }
+
+  .section-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  .projects {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .project {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: 1rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .project:first-child {
+    border-top: 1px solid var(--border);
+  }
+
+  .project-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+  }
+
+  .project-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    transition: color 0.2s;
+  }
+
+  .project:hover .project-name {
+    color: var(--accent);
+  }
+
+  .project-desc {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.55;
+    font-weight: 300;
+    max-width: 42ch;
+  }
+
+  .project-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-shrink: 0;
+    padding-top: 0.2rem;
+  }
+
+  .proj-link {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.3rem 0.7rem;
+    transition: all 0.2s;
+    background: white;
+    white-space: nowrap;
+  }
+
+  .proj-link:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: var(--accent-light);
+  }
+
+  footer {
+    margin-top: 4rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  header { animation: fadeUp 0.6s ease both; }
+  .divider { animation: fadeUp 0.6s 0.15s ease both; }
+  .section-label { animation: fadeUp 0.6s 0.2s ease both; }
+  .project:nth-child(1) { animation: fadeUp 0.5s 0.25s ease both; }
+  .project:nth-child(2) { animation: fadeUp 0.5s 0.35s ease both; }
+  .project:nth-child(3) { animation: fadeUp 0.5s 0.45s ease both; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <p class="eyebrow">Remy Fernando</p>
+    <h1>Curious<br>by <em>nature,</em><br>builder by choice.</h1>
+    <p class="tagline">Passionate about the relationship between people and technology, and how it can genuinely enhance human experience.</p>
+    <p class="bio">I'm Remy — psychology graduate, SEN educator, and self-taught builder working at the intersection of human behaviour and technology. I taught myself to code through real projects: data pipelines, analytics dashboards, and AI-powered tools, driven by genuine curiosity about how people think and interact with the digital world. I believe the most interesting problems live where cognitive science meets technology, and I'm working toward building things that put people first.</p>
+    <div class="links">
+      <a href="https://github.com/Rem-fer" class="link-pill" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+      <a href="https://www.linkedin.com/in/remy-fernando/" class="link-pill" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </header>
+
+  <hr class="divider">
+
+  <p class="section-label">Selected work</p>
+
+  <div class="projects">
+
+    <div class="project">
+      <div>
+        <p class="project-number">01</p>
+        <p class="project-name">Personal Spending Tracker</p>
+        <p class="project-desc">AI finance dashboard with Open Banking integration and Claude-powered transaction categorisation.</p>
+      </div>
+      <div class="project-actions">
+        <a href="https://smart-spending-tracker-production.up.railway.app/" class="proj-link" target="_blank" rel="noopener">Live ↗</a>
+        <a href="https://github.com/Rem-fer/smart-spending-tracker" class="proj-link" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div>
+        <p class="project-number">02</p>
+        <p class="project-name">BSc Psychology Research Project</p>
+        <p class="project-desc">Interactive redeployment of a psychology study on mindfulness, inhibitory control, and phone use — with an AI chatbot powered by Claude.</p>
+      </div>
+      <div class="project-actions">
+        <a href="https://bsc-psychology-research-report-phtmp6ybrbpdsywg937adz.streamlit.app/" class="proj-link" target="_blank" rel="noopener">Live ↗</a>
+        <a href="https://github.com/Rem-fer/BSC-Psychology-Research-Report" class="proj-link" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="project">
+      <div>
+        <p class="project-number">03</p>
+        <p class="project-name">Stiys</p>
+        <p class="project-desc">Visualise how much of your life is spent on screens — combining daily usage with life expectancy data to promote digital wellbeing.</p>
+      </div>
+      <div class="project-actions">
+        <a href="https://www.stiys.com" class="proj-link" target="_blank" rel="noopener">Live ↗</a>
+        <a href="https://github.com/Rem-fer/screen_time_in_years" class="proj-link" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 Remy Fernando</p>
+  </footer>
+
+</div>
+</body>
+</html>
